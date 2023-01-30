@@ -9,8 +9,8 @@ function createNav(parent) {
 
   createDropdownMenu(nav, "My Mega Menu", [
     {
-      innerText: "Option 1",
-      onclick: () => alert("Option 1 clicked!"),
+      innerText: "Google a different menu",
+      href: "https://www.google.com",
     },
     {
       innerText: "Option 2",

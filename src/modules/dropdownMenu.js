@@ -22,13 +22,16 @@ export default function create(parent, titleText, optionsData) {
 }
 
 function createOption(parent, optionData) {
-  let option = document.createElement("a");
+  let option = document.createElement("div");
   option.classList.add("dropdownOption");
   parent.appendChild(option);
 
-  option.innerText = optionData.innerText;
+  let link = document.createElement("a");
+  link.innerText = optionData.innerText;
+  option.appendChild(link);
+
   if (optionData.onclick != undefined) option.onclick = optionData.onclick;
-  else if (optionData.href != undefined) option.href = optionData.href;
+  else if (optionData.href != undefined) link.href = optionData.href;
 
   return option;
 }

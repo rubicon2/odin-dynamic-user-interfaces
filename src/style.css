@@ -29,8 +29,8 @@ nav {
 .dropdownMenu {
   position: relative;
   z-index: 1;
-  height: max-content;
   text-align: center;
+  width: 100%;
 }
 
 .dropdownMenuTitle,
@@ -46,13 +46,14 @@ nav {
 
 .dropdownOptionSet {
   position: absolute;
+  width: inherit;
 }
 
 .dropdownOption {
   position: absolute;
+  width: inherit;
 
   z-index: -1;
-  width: max-content;
 
   background-color: var(--background-color);
 
