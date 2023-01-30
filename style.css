@@ -1,13 +1,60 @@
 :root {
   box-sizing: border-box;
+
+  --background-color: pink;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+
+  /* border: 1px solid red; */
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
 }
 
 body {
-  background-color: pink;
+  min-height: 100vh;
+
+  background-color: var(--background-color);
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dropdownMenu {
+  position: relative;
+  z-index: 1;
+  height: max-content;
+}
+
+.dropdownMenuTitle,
+.dropdownOption {
+  user-select: none;
+  cursor: pointer;
+}
+
+.dropdownMenuTitle {
+  background-color: var(--background-color);
+}
+
+.dropdownOptionSet {
+  position: absolute;
+}
+
+.dropdownOption {
+  position: absolute;
+
+  z-index: -1;
+  width: max-content;
+
+  background-color: var(--background-color);
+
+  translate: 0 -100%;
+
+  transition: translate 350ms ease-in-out 75ms;
 }
