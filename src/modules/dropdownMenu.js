@@ -38,9 +38,12 @@ function createOption(parent, optionData) {
 
 function showMenuOptions(dropdownMenu) {
   let options = dropdownMenu.querySelectorAll(".dropdownOption");
+  let priorHeight = 0;
   for (let i = 0; i < options.length; i++) {
-    options[i].style.zIndex = i * -1 - 1;
-    options[i].style.translate = `0 ${100 * i}%`;
+    let currentOption = options[i];
+    currentOption.style.zIndex = i * -1 - 1;
+    currentOption.style.translate = `0 ${priorHeight}px`;
+    priorHeight += currentOption.clientHeight;
   }
 }
 
