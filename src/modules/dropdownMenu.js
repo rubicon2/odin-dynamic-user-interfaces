@@ -1,4 +1,4 @@
-function create(parent, titleText, optionsData) {
+export default function create(parent, titleText, optionsData) {
   let dropdownMenu = document.createElement("div");
   dropdownMenu.classList.add("dropdownMenu");
   dropdownMenu.onmouseover = () => showMenuOptions(dropdownMenu);
@@ -47,33 +47,3 @@ function hideMenuOptions(dropdownMenu) {
     options[i].style.translate = `0 ${-100}%`;
   }
 }
-
-create(document.querySelector("nav"), "My Mega Menu", [
-  {
-    innerText: "Option 1",
-    onclick: () => alert("Option 1 clicked!"),
-  },
-  {
-    innerText: "Option 2",
-    onclick: () => alert("Option 2 clicked... wowser!"),
-  },
-  {
-    innerText: "Option 3",
-    onclick: () => alert("Option 3 clicked, fuck my nugs!!"),
-  },
-]);
-
-create(document.querySelector("nav"), "My Amazing Menu", [
-  {
-    innerText: "Vanilla",
-    onclick: () => alert("The original!"),
-  },
-  {
-    innerText: "Chocolate",
-    onclick: () => alert("Another classic."),
-  },
-  {
-    innerText: "Neopolitan",
-    onclick: () => alert("Who even came up with this..."),
-  },
-]);
