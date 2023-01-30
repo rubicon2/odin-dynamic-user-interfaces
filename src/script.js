@@ -52,5 +52,20 @@ function createNav(parent) {
     },
   ]);
 
+  createDropdownMenu(nav, "My Fourth Menu", [
+    {
+      innerText: "Vanilla",
+      onclick: () => alert("The original!"),
+    },
+    {
+      innerText: "Chocolate",
+      onclick: () => alert("Another classic."),
+    },
+    {
+      innerText: "Neopolitan",
+      onclick: () => alert("Who even came up with this..."),
+    },
+  ]);
+
   return nav;
 }
