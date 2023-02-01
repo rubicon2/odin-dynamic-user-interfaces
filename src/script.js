@@ -1,69 +1,69 @@
-import "./style.css";
-import { default as createDropdownMenu } from "./modules/dropdownMenu";
+import './style.css';
+import { default as createDropdownMenu } from './modules/dropdownMenu';
 
-createNav(document.querySelector("body"));
+createNav(document.querySelector('body'));
 
 function createNav(parent) {
-  let nav = document.createElement("nav");
+  let nav = document.createElement('nav');
   parent.appendChild(nav);
 
-  createDropdownMenu(nav, "My Mega Menu", [
+  createDropdownMenu(nav, 'My Mega Menu', [
     {
-      innerText: "Google a different menu",
-      href: "https://www.google.com",
+      innerText: 'Google a different menu',
+      href: 'https://www.google.com',
     },
     {
-      innerText: "Option 2",
-      onclick: () => alert("Option 2 clicked... wowser!"),
+      innerText: 'Option 2',
+      onclick: () => alert('Option 2 clicked... wowser!'),
     },
     {
-      innerText: "Option 3",
-      onclick: () => alert("Option 3 clicked, DO NOTHING STRANGE to my nugs!!"),
-    },
-  ]);
-
-  createDropdownMenu(nav, "My Amazing Menu", [
-    {
-      innerText: "Vanilla",
-      onclick: () => alert("The original!"),
-    },
-    {
-      innerText: "Chocolate",
-      onclick: () => alert("Another classic."),
-    },
-    {
-      innerText: "Neopolitan",
-      onclick: () => alert("Who even came up with this..."),
+      innerText: 'Option 3',
+      onclick: () => alert('Option 3 clicked, DO NOTHING STRANGE to my nugs!!'),
     },
   ]);
 
-  createDropdownMenu(nav, "My Third Menu", [
+  createDropdownMenu(nav, 'My Amazing Menu', [
     {
-      innerText: "Vanilla",
-      onclick: () => alert("The original!"),
+      innerText: 'Vanilla',
+      onclick: () => alert('The original!'),
     },
     {
-      innerText: "Chocolate",
-      onclick: () => alert("Another classic."),
+      innerText: 'Chocolate',
+      onclick: () => alert('Another classic.'),
     },
     {
-      innerText: "Neopolitan",
-      onclick: () => alert("Who even came up with this..."),
+      innerText: 'Neopolitan',
+      onclick: () => alert('Who even came up with this...'),
     },
   ]);
 
-  createDropdownMenu(nav, "My Fourth Menu", [
+  createDropdownMenu(nav, 'My Third Menu', [
     {
-      innerText: "Vanilla",
-      onclick: () => alert("The original!"),
+      innerText: 'Vanilla',
+      onclick: () => alert('The original!'),
     },
     {
-      innerText: "Chocolate",
-      onclick: () => alert("Another classic."),
+      innerText: 'Chocolate',
+      onclick: () => alert('Another classic.'),
     },
     {
-      innerText: "Neopolitan",
-      onclick: () => alert("Who even came up with this..."),
+      innerText: 'Neopolitan',
+      onclick: () => alert('Who even came up with this...'),
+    },
+  ]);
+
+  createDropdownMenu(nav, 'My Fourth Menu', [
+    {
+      innerText: 'Vanilla',
+      onclick: () => alert('The original!'),
+    },
+    {
+      innerText: 'Chocolate',
+      onclick: () => alert('Another classic.'),
+    },
+    {
+      innerText: 'Neopolitan',
+      onclick: () => alert('Who even came up with this...'),
     },
   ]);
 
