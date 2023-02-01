@@ -1,17 +1,17 @@
 export default function create(parent, titleText, optionsData) {
-  let dropdownMenu = document.createElement("div");
-  dropdownMenu.classList.add("dropdownMenu");
-  dropdownMenu.onmouseover = () => showMenuOptions(dropdownMenu);
-  dropdownMenu.onmouseout = () => hideMenuOptions(dropdownMenu);
+  let dropdownMenu = document.createElement('div');
+  dropdownMenu.classList.add('dropdownMenu');
+  dropdownMenu.onmouseenter = () => showMenuOptions(dropdownMenu);
+  dropdownMenu.onmouseleave = () => hideMenuOptions(dropdownMenu);
   parent.appendChild(dropdownMenu);
 
-  let title = document.createElement("div");
-  title.classList.add("dropdownMenuTitle");
+  let title = document.createElement('div');
+  title.classList.add('dropdownMenuTitle');
   title.innerText = titleText;
   dropdownMenu.appendChild(title);
 
-  let optionSet = document.createElement("div");
-  optionSet.classList.add("dropdownOptionSet");
+  let optionSet = document.createElement('div');
+  optionSet.classList.add('dropdownOptionSet');
   dropdownMenu.appendChild(optionSet);
 
   optionsData.forEach((e) => {
@@ -22,11 +22,11 @@ export default function create(parent, titleText, optionsData) {
 }
 
 function createOption(parent, optionData) {
-  let option = document.createElement("div");
-  option.classList.add("dropdownOption");
+  let option = document.createElement('div');
+  option.classList.add('dropdownOption');
   parent.appendChild(option);
 
-  let link = document.createElement("a");
+  let link = document.createElement('a');
   link.innerText = optionData.innerText;
   option.appendChild(link);
 
@@ -37,7 +37,7 @@ function createOption(parent, optionData) {
 }
 
 function showMenuOptions(dropdownMenu) {
-  let options = dropdownMenu.querySelectorAll(".dropdownOption");
+  let options = dropdownMenu.querySelectorAll('.dropdownOption');
   let priorHeight = 0;
   for (let i = 0; i < options.length; i++) {
     let currentOption = options[i];
@@ -48,7 +48,7 @@ function showMenuOptions(dropdownMenu) {
 }
 
 function hideMenuOptions(dropdownMenu) {
-  let options = dropdownMenu.querySelectorAll(".dropdownOption");
+  let options = dropdownMenu.querySelectorAll('.dropdownOption');
   for (let i = 0; i < options.length; i++) {
     options[i].style.translate = `0 ${-100}%`;
   }
