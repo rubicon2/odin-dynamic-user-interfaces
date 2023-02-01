@@ -1,0 +1,35 @@
+.mobileMenu {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.iconContainer {
+  width: min(100vw, 500px);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  place-items: center;
+  gap: 0 2rem;
+}
+
+.menuIcon {
+  cursor: pointer;
+
+  transition: scale 300ms ease-in-out,
+              rotate 750ms ease-in-out;
+}
+
+.menuIcon:hover {
+  scale: 1.4;
+}
+
+.spinningCog:hover {
+  rotate: 360deg;
+}

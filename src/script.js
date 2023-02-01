@@ -1,7 +1,11 @@
 import './style.css';
 import { default as createDropdownMenu } from './modules/dropdownMenu';
+import { default as createMobileMenu } from './modules/mobileMenu/mobileMenuScript';
 
-createNav(document.querySelector('body'));
+const body = document.querySelector('body');
+
+createNav(body);
+createMobileMenu(body);
 
 function createNav(parent) {
   let nav = document.createElement('nav');
