@@ -7,27 +7,90 @@ import { default as createMobileMenu } from './modules/mobileMenu/mobileMenuScri
 
 const body = document.querySelector('body');
 
-createNav(body);
 createMobileMenu(body, [
   {
     name: 'Home',
     icon: homeIcon,
-    onclick: () => alert('Home icon clicked!'),
+    onclick: () => createHomeMenu(body),
     default: true,
   },
   {
     name: 'Search',
     icon: searchIcon,
-    onclick: () => alert('Search icon clicked!'),
+    onclick: () => createSearchMenu(body),
   },
   {
     name: 'Settings',
     icon: optionsIcon,
-    onclick: () => alert('Options icon clicked!'),
+    onclick: () => createOptionsMenu(body),
   },
 ]);
 
-function createNav(parent) {
+function createHomeMenu(parent) {
+  document.querySelector('nav')?.remove();
+
+  let nav = document.createElement('nav');
+  parent.appendChild(nav);
+
+  createDropdownMenu(nav, 'Home Menu 1', [
+    {
+      innerText: 'Google a different menu',
+      href: 'https://www.google.com',
+    },
+    {
+      innerText: 'Option 2',
+      onclick: () => alert('Option 2 clicked... wowser!'),
+    },
+  ]);
+
+  createDropdownMenu(nav, 'Home Menu 2', [
+    {
+      innerText: 'Google a different menu',
+      href: 'https://www.google.com',
+    },
+    {
+      innerText: 'Option 2',
+      onclick: () => alert('Option 2 clicked... wowser!'),
+    },
+  ]);
+
+  return nav;
+}
+
+function createSearchMenu(parent) {
+  document.querySelector('nav')?.remove();
+
+  let nav = document.createElement('nav');
+  parent.appendChild(nav);
+
+  createDropdownMenu(nav, 'Search Menu 1', [
+    {
+      innerText: 'Google a different menu',
+      href: 'https://www.google.com',
+    },
+    {
+      innerText: 'Option 2',
+      onclick: () => alert('Option 2 clicked... wowser!'),
+    },
+  ]);
+
+  createDropdownMenu(nav, 'Search Menu 2', [
+    {
+      innerText: 'Google a different menu',
+      href: 'https://www.google.com',
+    },
+    {
+      innerText: 'Option 2',
+      onclick: () => alert('Option 2 clicked... wowser!'),
+    },
+  ]);
+
+  return nav;
+}
+
+function createOptionsMenu(parent) {
+  document.querySelector('nav')?.remove();
+
   let nav = document.createElement('nav');
   parent.appendChild(nav);
 

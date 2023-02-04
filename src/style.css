@@ -9,8 +9,6 @@
   margin: 0;
   padding: 0;
 
-  /* border: 1px solid red; */
-
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
 }
@@ -21,8 +19,8 @@ body {
 }
 
 nav {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  grid-template-columns: repeat(auto-fit, 1fr);
 }
 
 .dropdownMenu {
