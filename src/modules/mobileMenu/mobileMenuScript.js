@@ -1,29 +1,41 @@
 import './style.css';
-import homeIcon from './home.svg';
-import searchIcon from './search.svg';
-import optionsIcon from './options.svg';
 
-export default function create(parent) {
-  let background = document.createElement('div');
-  background.classList.add('mobileMenu');
-  parent.appendChild(background);
+export default function create(parent, menuOptions) {
+  let menu = document.createElement('div');
+  menu.classList.add('mobileMenu');
+  parent.appendChild(menu);
 
-  let iconContainer = document.createElement('div');
-  iconContainer.classList.add('iconContainer');
-  background.appendChild(iconContainer);
+  menuOptions.forEach((menuOption) => {
+    let optionElement = createMenuOption(
+      menu,
+      menuOption.name,
+      menuOption.icon,
+      menuOption.onclick
+    );
+    if (menuOption.default) optionElement.click();
+  });
 
-  createMenuOption(iconContainer, homeIcon, null);
-  createMenuOption(iconContainer, searchIcon, null);
-  let spinningCog = createMenuOption(iconContainer, optionsIcon, null);
-  spinningCog.classList.add('spinningCog');
+  return menu;
 }
 
-function createMenuOption(parent, icon, fn) {
+function createMenuOption(parent, name, icon, onClick) {
+  let menuTab = document.createElement('div');
+  menuTab.classList.add('menuTab');
+  parent.appendChild(menuTab);
+
+  menuTab.addEventListener('click', () => {
+    parent
+      .querySelectorAll('.menuTabSelected')
+      .forEach((e) => e.classList.remove('menuTabSelected'));
+    menuTab.classList.add('menuTabSelected');
+    if (onClick != null) onClick();
+  });
+
   let mobileMenuIcon = document.createElement('img');
   mobileMenuIcon.classList.add('menuIcon');
   mobileMenuIcon.src = icon;
-  mobileMenuIcon.onclick = fn;
-  parent.appendChild(mobileMenuIcon);
+  mobileMenuIcon.alt = name;
+  menuTab.appendChild(mobileMenuIcon);
 
-  return mobileMenuIcon;
+  return menuTab;
 }
