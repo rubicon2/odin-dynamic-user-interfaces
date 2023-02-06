@@ -4,6 +4,12 @@ import searchIcon from './search.svg';
 import optionsIcon from './options.svg';
 import { default as createDropdownMenu } from './modules/dropdownMenu';
 import { default as createMobileMenu } from './modules/mobileMenu/mobileMenuScript';
+import { default as createImageCarousel } from './modules/imageCarousel/imageCarouselScript';
+
+import img1 from './img1.jpg';
+import img2 from './img2.jpg';
+import img3 from './img3.jpg';
+import img4 from './img4.jpg';
 
 const body = document.querySelector('body');
 
@@ -11,23 +17,61 @@ createMobileMenu(body, [
   {
     name: 'Home',
     icon: homeIcon,
-    onclick: () => createHomeMenu(body),
+    onclick: () => {
+      clearPage(body);
+      createHomeMenu(body);
+    },
     default: true,
   },
   {
     name: 'Search',
     icon: searchIcon,
-    onclick: () => createSearchMenu(body),
+    onclick: () => {
+      clearPage(body);
+      body.querySelector('.mobileMenu')?.remove();
+      createMegaCarousel(body);
+    },
   },
   {
     name: 'Settings',
     icon: optionsIcon,
-    onclick: () => createOptionsMenu(body),
+    onclick: () => {
+      clearPage(body);
+      createOptionsMenu(body);
+    },
   },
 ]);
 
+function clearPage(parent) {
+  parent.querySelector('.imageCarousel')?.remove();
+  parent.querySelector('nav')?.remove();
+}
+
+function createMegaCarousel(parent) {
+  parent.querySelector('.imageCarousel')?.remove();
+
+  createImageCarousel(parent, [
+    {
+      src: img1,
+      alt: 'An amazing icon!',
+    },
+    {
+      src: img2,
+      alt: 'Another incredible icon!',
+    },
+    {
+      src: img3,
+      alt: 'Another incredible icon!',
+    },
+    {
+      src: img4,
+      alt: 'Another incredible icon!',
+    },
+  ]);
+}
+
 function createHomeMenu(parent) {
-  document.querySelector('nav')?.remove();
+  parent.querySelector('nav')?.remove();
 
   let nav = document.createElement('nav');
   parent.appendChild(nav);
@@ -57,39 +101,8 @@ function createHomeMenu(parent) {
   return nav;
 }
 
-function createSearchMenu(parent) {
-  document.querySelector('nav')?.remove();
-
-  let nav = document.createElement('nav');
-  parent.appendChild(nav);
-
-  createDropdownMenu(nav, 'Search Menu 1', [
-    {
-      innerText: 'Google a different menu',
-      href: 'https://www.google.com',
-    },
-    {
-      innerText: 'Option 2',
-      onclick: () => alert('Option 2 clicked... wowser!'),
-    },
-  ]);
-
-  createDropdownMenu(nav, 'Search Menu 2', [
-    {
-      innerText: 'Google a different menu',
-      href: 'https://www.google.com',
-    },
-    {
-      innerText: 'Option 2',
-      onclick: () => alert('Option 2 clicked... wowser!'),
-    },
-  ]);
-
-  return nav;
-}
-
 function createOptionsMenu(parent) {
-  document.querySelector('nav')?.remove();
+  parent.querySelector('nav')?.remove();
 
   let nav = document.createElement('nav');
   parent.appendChild(nav);

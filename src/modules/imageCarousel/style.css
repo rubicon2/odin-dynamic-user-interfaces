@@ -1,0 +1,83 @@
+.imageCarousel {
+  height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  background-color: black;
+}
+
+.imageCarousel .control {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.imageCarousel .previousImg,
+.imageCarousel .nextImg {
+  position: absolute;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.imageCarousel .previousImg {
+  left: 0;
+}
+
+.imageCarousel .previousImg img {
+  scale: -1;
+}
+
+.imageCarousel .nextImg {
+  right: 0;
+}
+
+.imageCarousel .imgContainer {
+  position: absolute;
+
+  display: grid;
+  place-items: center;
+
+  height: 100%;
+
+  transition: opacity 1s ease-in-out;
+}
+
+.imgContainer .carouselImage {
+  height: 100%;
+  overflow: hidden;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.imgSelector {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  padding: 1rem;
+}
+
+.imgSelector .selectorDot {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: aliceblue;
+
+  border: 5px solid aliceblue;
+  border-radius: 25px;
+
+  opacity: 0.3;
+}
+
+.selectorDot.selected {
+  opacity: 0.6;
+}
